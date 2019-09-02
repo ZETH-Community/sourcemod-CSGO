@@ -1379,7 +1379,7 @@ bool CHalfLife2::IsMapValid(const char *map)
 	if (!map || !map[0])
 		return false;
 	
-	return FindMap(map) != SMFindMapResult::NotFound;
+	return FindMap(map) == SMFindMapResult::Found;
 }
 
 #if SOURCE_ENGINE < SE_ORANGEBOX

@@ -342,7 +342,15 @@ class SMConfig(object):
       cxx.cflags += ['-Wno-maybe-uninitialized']
 
     if builder.options.opt == '1':
-      cxx.cflags += ['-O3']
+      cxx.cflags += [
+            '-O3',
+            '-fexperimental-new-pass-manager',
+            '-mllvm',
+            '-inline-threshold=1000',
+            '-mllvm',
+            '-vectorize-loops',
+            '-ftree-vectorize',
+      ]
 
     # Don't omit the frame pointer.
     cxx.cflags += ['-fno-omit-frame-pointer']
